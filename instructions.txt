@@ -27,7 +27,8 @@ navigate first inside src folder via:
 
 3. Run the unit test on the terminal via:
     ```
-        g++ test.cpp catch.cpp -o test.exe && ./test.exe
+        g++ test.cpp catch.cpp -o test.exe
+        ./test.exe
     ```
 
 4. If you are already finished, run the following terminal command in order:
