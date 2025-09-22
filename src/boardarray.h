@@ -14,35 +14,36 @@ class BoardArray : public Board {
         }
 
         void add(Entry* entry) {
-    if (index == 0) {
-        array[0] = *entry;
-        index++;
-        return;
-    }
+            int pos = 0;
+            for (pos = 0; pos < index; pos++) {
+                if (entry->compare(&array[pos])) {
+                    break;
+                }
+            }
 
-    if (index == SIZE && !entry->compare(&array[index - 1])) {
-        cout << entry->name << "'s score is too low to be added!" << endl;
-        return;
-    }
+            if (index == SIZE && pos == SIZE) {
+                cout << entry->name << "'s score is too low to be added!" << endl;
+                return;
+            }
 
-    int pos = index;
-    for (int i = 0; i < index; i++) {
-        if (entry->compare(&array[i])) {
-            pos = i;
-            break;
+            int lastIndex;
+            if (index < SIZE) {
+                lastIndex = index;
+            } else {
+                lastIndex = SIZE - 1;
+            }
+
+            for (int i = lastIndex - 1; i >= pos; i--) {
+                array[i + 1] = array[i];
+            }
+
+            array[pos] = *entry;
+
+            if (index < SIZE) {
+                index++;
+            }
+
         }
-    }
-
-    if (index < SIZE) {
-        index++;
-    }
-
-    for (int j = index - 1; j > pos; j--) {
-        array[j] = array[j - 1];
-    }
-
-    array[pos] = *entry;
-}
 
         void print() {
             for (int i = 0; i < index; i++) {
