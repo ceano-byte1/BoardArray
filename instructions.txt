@@ -11,7 +11,7 @@ navigate first inside src folder via:
     Algorithm (in order):
         a. Traverse the array up until the last element
         b. Compare (using the bool compare() function of Entry) the `entry` to be added to the `existing entry` currently traversed.
-        c. To get the current entry, you can access it via `array[i * sizeof(Entry)]` or `*(array + i * sizeof(Entry)). I will discuss first why is this the case.
+        c. To get the current entry, you can access it via `array[i]` or `*(array + i). I will discuss first why is this the case.
         d. If `entry` to be added is indeed greater than the existing one, `SHIFT RIGHT`
         e. After shift right, add the new entry to the correct position.
 
