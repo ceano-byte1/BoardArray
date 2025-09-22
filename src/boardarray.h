@@ -23,6 +23,7 @@ class BoardArray : public Board {
             for (int i = 0; i < index; i++) {
                 cout << i + 1 << ". ";
                 array[i].print();
+                return;
             }
         }
 };
